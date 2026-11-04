@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>인천공항고 읽걷쓰AI 미래 항공권 발권기 | 2026 인천 AI·SW 미래채움 교육페스티벌</title>
+  <!-- Pretendard & JetBrains Mono & Noto Serif KR Fonts -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+  <!-- html2canvas for High-Res Ticket Image Download -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background Decoration (Hidden in Print) -->
+  <div class="bg-sky-decor no-print">
+    <div class="cloud-glow glow-1"></div>
+    <div class="cloud-glow glow-2"></div>
+    <div class="flight-path-svg">
+      <svg viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-50 260 C 320 80, 880 340, 1490 60" stroke="rgba(59, 130, 246, 0.14)" stroke-width="2.5" stroke-dasharray="8 8"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Top Header (Hidden in Print) -->
+  <header class="app-header no-print">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="school-emblem" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M21 16V14L13 9V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9L2 14V16L10 13.5V19L8 20.5V22L11.5 21L15 22V20.5L13 19V13.5L21 16Z" fill="#3B82F6"/>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <div class="festival-badge">2026 인천 AI·SW 미래채움 교육페스티벌 · 인천공항고등학교 부스</div>
+          <h1 class="main-title">인천공항고 <span class="accent-text">읽걷쓰AI</span> 미래 항공권 발권기</h1>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <span class="slogan-pill">"읽걷쓰AI, 인간다움을 품고 AI와 함께 꿈을 이루다"</span>
+        <button type="button" id="openApiModalBtn" class="api-status-btn" title="AI API 키 및 출력 설정">
+          <span class="status-dot" id="apiStatusDot"></span>
+          <span id="apiStatusLabel">스마트 템플릿 모드 (AI 연동 가능)</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="main-container">
+    <!-- Left / Top Section: Kiosk Check-In Input Panel (Hidden in Print) -->
+    <section class="kiosk-panel no-print" aria-label="탑승권 체크인 입력">
+      <div class="kiosk-card">
+        <div class="kiosk-card-header">
+          <div class="step-badge">CHECK-IN COUNTER · ICN</div>
+          <h2>나만의 미래 항공권 발권하기</h2>
+          <p>이름과 가슴을 뛰게 하는 미래 키워드 3가지를 선택해 주세요.</p>
+        </div>
+
+        <form id="boardingForm" class="check-in-form" onsubmit="return false;">
+          <!-- 1. Passenger Name -->
+          <div class="form-group">
+            <label for="passengerName" class="form-label">
+              <span>01. 탑승객 성명 (Name / Nickname)</span>
+              <span class="label-sub">PASSENGER</span>
+            </label>
+            <div class="input-wrapper">
+              <input
+                type="text"
+                id="passengerName"
+                placeholder="예: 김공항 / 미래비행사"
+                maxlength="16"
+                autocomplete="off"
+                required
+              />
+              <button type="button" id="clearNameBtn" class="clear-input-btn" title="이름 지우기" aria-label="이름 지우기">✕</button>
+            </div>
+          </div>
+
+          <!-- 2. Keywords Selection -->
+          <div class="form-group">
+            <div class="form-label">
+              <span>02. 미래 키워드 3가지 선택 (Future Keywords)</span>
+              <span class="keyword-counter" id="keywordCounter">0 / 3 선택됨</span>
+            </div>
+
+            <!-- Selected Keywords Display -->
+            <div class="selected-keywords-bar" id="selectedKeywordsBar">
+              <span class="empty-keyword-hint">아래 추천 태그를 클릭하거나 직접 입력해 3개를 채워주세요 ✨</span>
+            </div>
+
+            <!-- Quick Select Chips -->
+            <div class="chip-grid" id="keywordChipGrid" role="group" aria-label="추천 미래 키워드">
+              <button type="button" class="keyword-chip" data-keyword="우주탐험">#우주탐험</button>
+              <button type="button" class="keyword-chip" data-keyword="인공지능">#인공지능</button>
+              <button type="button" class="keyword-chip" data-keyword="꿈">#꿈</button>
+              <button type="button" class="keyword-chip" data-keyword="도전">#도전</button>
+              <button type="button" class="keyword-chip" data-keyword="로봇">#로봇</button>
+              <button type="button" class="keyword-chip" data-keyword="예술">#예술</button>
+              <button type="button" class="keyword-chip" data-keyword="행복">#행복</button>
+              <button type="button" class="keyword-chip" data-keyword="자유">#자유</button>
+              <button type="button" class="keyword-chip" data-keyword="열정">#열정</button>
+              <button type="button" class="keyword-chip" data-keyword="창의력">#창의력</button>
+              <button type="button" class="keyword-chip" data-keyword="친환경">#친환경</button>
+              <button type="button" class="keyword-chip" data-keyword="글로벌리더">#글로벌리더</button>
+              <button type="button" class="keyword-chip" data-keyword="항공우주">#항공우주</button>
+              <button type="button" class="keyword-chip" data-keyword="따뜻한기술">#따뜻한기술</button>
+            </div>
+
+            <!-- Custom Keyword Input -->
+            <div class="custom-keyword-row">
+              <input
+                type="text"
+                id="customKeywordInput"
+                placeholder="직접 키워드 입력 후 추가 (예: 웹툰작가, 양자컴퓨터)"
+                maxlength="12"
+                autocomplete="off"
+              />
+              <button type="button" id="addCustomKeywordBtn" class="secondary-btn">+ 직접 추가</button>
+              <button type="button" id="randomKeywordBtn" class="ghost-btn" title="랜덤 3개 추천">🎲 랜덤선택</button>
+            </div>
+          </div>
+
+          <!-- 3. Destination Mood / Class Theme (Optional Quick Toggle) -->
+          <div class="form-group">
+            <label class="form-label">
+              <span>03. 읽걷쓰 비행 클래스 (Flight Class)</span>
+              <span class="label-sub">CABIN CLASS</span>
+            </label>
+            <div class="class-selector" role="radiogroup" aria-label="비행 클래스 선택">
+              <label class="class-option active">
+                <input type="radio" name="cabinClass" value="DREAM FIRST" checked />
+                <span class="class-code">DREAM FIRST</span>
+                <span class="class-desc">창의·비상 퍼스트</span>
+              </label>
+              <label class="class-option">
+                <input type="radio" name="cabinClass" value="AI PRESTIGE" />
+                <span class="class-code">AI PRESTIGE</span>
+                <span class="class-desc">미래기술 프레스티지</span>
+              </label>
+              <label class="class-option">
+                <input type="radio" name="cabinClass" value="HUMAN SUITE" />
+                <span class="class-code">HUMAN SUITE</span>
+                <span class="class-desc">인간다움 스위트</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Submit / Issue Ticket Button -->
+          <div class="form-submit-row">
+            <button type="submit" id="issueTicketBtn" class="issue-btn">
+              <span class="btn-icon">✈️</span>
+              <span id="issueBtnText">미래 항공권 즉시 발권하기</span>
+            </button>
+            <button type="button" id="resetKioskBtn" class="reset-btn" title="다음 관람객을 위해 입력 초기화">
+              초기화
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Right / Bottom Section: Boarding Pass Result & 3x5 Print Preview -->
+    <section class="ticket-preview-section" aria-label="발권된 보딩패스 영역">
+      <div class="preview-header no-print">
+        <div class="preview-title-group">
+          <span class="live-indicator"></span>
+          <h3>실물 항공권 미리보기 <span class="size-badge">3 × 5 inch 포토용지 규격 최적화</span></h3>
+        </div>
+        <div class="paper-orientation-toggle">
+          <label for="printPaperMode" class="sr-only">인쇄 용지 규격</label>
+          <select id="printPaperMode" class="paper-select" title="인쇄 시 포토용지 방향 및 규격 선택">
+            <option value="5x3-landscape" selected>🖨️ 5×3인치 가로 포토용지 (127×76mm 권장)</option>
+            <option value="3x5-portrait">🖨️ 3×5인치 세로 포토용지 (76×127mm)</option>
+            <option value="a4-center">🖨️ 일반 A4 중앙 인쇄 (절취선 가이드)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Loading Overlay during AI Generation -->
+      <div id="ticketLoadingOverlay" class="ticket-loading-overlay hidden no-print">
+        <div class="plane-loader">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+            <path d="M21 16V14L13 9V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9L2 14V16L10 13.5V19L8 20.5V22L11.5 21L15 22V20.5L13 19V13.5L21 16Z" fill="#3B82F6"/>
+          </svg>
+        </div>
+        <p class="loading-title">인천공항고 읽걷쓰AI가 항로를 계산하고 있습니다...</p>
+        <p class="loading-sub">관람객님의 3가지 키워드로 미래 목적지와 3줄 시를 짓는 중입니다</p>
+      </div>
+
+      <!-- ============================================================
+           ACTUAL BOARDING PASS CARD (3x5 Ratio Optimized for Print & Capture)
+           ============================================================ -->
+      <div class="boarding-pass-stage" id="boardingPassStage">
+        <article class="boarding-pass" id="boardingPassCard" aria-label="미래 항공권 보딩패스">
+          <!-- Top Airline Header Bar -->
+          <div class="bp-top-bar">
+            <div class="bp-airline-brand">
+              <svg class="bp-logo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M21 16V14L13 9V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9L2 14V16L10 13.5V19L8 20.5V22L11.5 21L15 22V20.5L13 19V13.5L21 16Z" fill="#FFFFFF"/>
+              </svg>
+              <span class="bp-airline-name">INCHEON AIRPORT HIGH SCHOOL AIRLINES</span>
+              <span class="bp-airline-sub">읽걷쓰AI 미래항공</span>
+            </div>
+            <div class="bp-top-right">
+              <span class="bp-class-pill" id="bpCabinClass">DREAM FIRST</span>
+              <span class="bp-pass-label">BOARDING PASS</span>
+            </div>
+          </div>
+
+          <!-- Main Body: Left (Main Section) + Tear Perforation + Right (Stub Section) -->
+          <div class="bp-body">
+            <!-- Left Main Section -->
+            <div class="bp-main">
+              <!-- Route & Flight Row -->
+              <div class="bp-route-row">
+                <div class="bp-airport-block">
+                  <span class="bp-field-label">DEPARTURE · 출발지</span>
+                  <div class="bp-iata-code">ICN</div>
+                  <div class="bp-city-name">인천공항고 (현재)</div>
+                </div>
+
+                <div class="bp-flight-graphic">
+                  <span class="bp-flight-no" id="bpFlightNo">IA 2026</span>
+                  <div class="bp-route-line">
+                    <span class="bp-dot"></span>
+                    <span class="bp-dash"></span>
+                    <svg class="bp-plane-svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path d="M21 16V14L13 9V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9L2 14V16L10 13.5V19L8 20.5V22L11.5 21L15 22V20.5L13 19V13.5L21 16Z" fill="#3B82F6"/>
+                    </svg>
+                    <span class="bp-dash"></span>
+                    <span class="bp-dot"></span>
+                  </div>
+                  <span class="bp-keywords-inline" id="bpKeywordsInline">#우주탐험 #인공지능 #꿈</span>
+                </div>
+
+                <div class="bp-airport-block bp-dest-block">
+                  <span class="bp-field-label">DESTINATION · 미래 목적지</span>
+                  <div class="bp-iata-code accent" id="bpDestCode">DRM</div>
+                  <div class="bp-city-name" id="bpDestName">네오 코스모스 스테이션</div>
+                </div>
+              </div>
+
+              <!-- 3-Line AI Poem Box (읽기·걷기 / 쓰기·AI / 응원과 희망) -->
+              <div class="bp-poem-box">
+                <div class="bp-poem-header">
+                  <span class="bp-poem-badge">읽걷쓰AI 미래 시문 (詩文)</span>
+                  <span class="bp-slogan-mini">인간다움을 품고 AI와 함께 꿈을 이루다</span>
+                </div>
+                <div class="bp-poem-lines">
+                  <div class="bp-poem-line">
+                    <span class="poem-step-tag">읽기·걷기</span>
+                    <p id="poemLine1">우주탐험과 인공지능을 품고 오늘의 교정을 힘차게 걸어가는 발걸음,</p>
+                  </div>
+                  <div class="bp-poem-line">
+                    <span class="poem-step-tag">쓰기·AI</span>
+                    <p id="poemLine2">인천공항 활주로 위로 AI의 날개를 달고 나만의 꿈을 하늘 가득 써 내려가며,</p>
+                  </div>
+                  <div class="bp-poem-line">
+                    <span class="poem-step-tag">미래·희망</span>
+                    <p id="poemLine3">마침내 닿은 별빛 목적지에서 세상 가장 눈부신 주인공으로 찬란히 빛나리라.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Meta Info Strip -->
+              <div class="bp-meta-strip">
+                <div class="bp-meta-item">
+                  <span class="bp-field-label">PASSENGER</span>
+                  <span class="bp-meta-val" id="bpPassengerName">홍길동 / DREAMER</span>
+                </div>
+                <div class="bp-meta-item">
+                  <span class="bp-field-label">DATE</span>
+                  <span class="bp-meta-val" id="bpDate">2026.11.04</span>
+                </div>
+                <div class="bp-meta-item">
+                  <span class="bp-field-label">GATE</span>
+                  <span class="bp-meta-val accent" id="bpGate">AI-01</span>
+                </div>
+                <div class="bp-meta-item">
+                  <span class="bp-field-label">BOARDING</span>
+                  <span class="bp-meta-val" id="bpBoardingTime">NOW</span>
+                </div>
+                <div class="bp-meta-item">
+                  <span class="bp-field-label">SEAT</span>
+                  <span class="bp-meta-val accent" id="bpSeat">01A</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Perforated Tear Line (절취선) -->
+            <div class="bp-perforation" aria-hidden="true">
+              <div class="notch notch-top"></div>
+              <div class="perf-line"></div>
+              <div class="notch notch-bottom"></div>
+            </div>
+
+            <!-- Right Stub Section -->
+            <div class="bp-stub">
+              <div class="bp-stub-top">
+                <div class="bp-stub-route">
+                  <span class="stub-iata">ICN</span>
+                  <span class="stub-arrow">✈</span>
+                  <span class="stub-iata accent" id="stubDestCode">DRM</span>
+                </div>
+                <div class="bp-stub-dest-title" id="stubDestName">네오 코스모스 스테이션</div>
+              </div>
+
+              <div class="bp-stub-info-grid">
+                <div class="stub-cell">
+                  <span class="bp-field-label">PASSENGER</span>
+                  <strong id="stubPassengerName">홍길동</strong>
+                </div>
+                <div class="stub-cell">
+                  <span class="bp-field-label">FLIGHT</span>
+                  <strong id="stubFlightNo">IA 2026</strong>
+                </div>
+                <div class="stub-cell">
+                  <span class="bp-field-label">GATE</span>
+                  <strong id="stubGate">AI-01</strong>
+                </div>
+                <div class="stub-cell">
+                  <span class="bp-field-label">SEAT</span>
+                  <strong class="accent" id="stubSeat">01A</strong>
+                </div>
+              </div>
+
+              <div class="bp-stub-keywords" id="stubKeywords">
+                <span>#우주탐험</span>
+                <span>#인공지능</span>
+                <span>#꿈</span>
+              </div>
+
+              <!-- Vector Barcode & Serial -->
+              <div class="bp-barcode-wrap">
+                <svg id="bpBarcodeSvg" class="bp-barcode-svg" viewBox="0 0 180 38" preserveAspectRatio="none" aria-label="탑승권 바코드"></svg>
+                <div class="bp-serial-code" id="bpSerialCode">ICN-2026-AI001-8842</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Footer Micro Banner -->
+          <div class="bp-footer-bar">
+            <span>2026 인천 AI·SW 미래채움 교육페스티벌 · 인천공항고등학교</span>
+            <span>"읽걷쓰AI, 인간다움을 품고 AI와 함께 꿈을 이루다"</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Bottom Action Buttons (Hidden in Print) -->
+      <div class="ticket-actions-bar no-print">
+        <button type="button" id="downloadTicketBtn" class="action-btn download-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>항공권 이미지 다운로드 (PNG)</span>
+        </button>
+
+        <button type="button" id="printTicketBtn" class="action-btn print-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>3×5 포토용지 즉시 인쇄하기</span>
+        </button>
+      </div>
+
+      <p class="print-tip no-print">
+        💡 <strong>포토프린터 3×5 인쇄 팁:</strong> 인쇄 대화상자에서 용지 크기를 <code>3×5 in (76×127mm)</code> 또는 <code>L판</code>으로 선택하고, <strong>'배경 그래픽 인쇄'</strong>를 체크하면 실물 컬러 탑승권으로 완벽하게 출력됩니다.
+      </p>
+    </section>
+  </main>
+
+  <!-- API Key & Booth Settings Modal (Hidden in Print) -->
+  <div id="apiModal" class="modal-backdrop hidden no-print" role="dialog" aria-modal="true" aria-labelledby="apiModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="apiModalTitle">🤖 생성형 AI 연동 설정 (부스 운영자용)</h3>
+        <button type="button" id="closeApiModalBtn" class="modal-close-btn" aria-label="닫기">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">
+          API 키를 입력하면 실시간 생성형 AI(Gemini 또는 OpenAI)가 관람객 맞춤형 3줄 시와 미래 목적지를 생성합니다.
+          <strong>API 키가 없거나 현장 와이파이가 불안정해도 내장된 '읽걷쓰AI 스마트 시학 엔진'이 즉시 작동하여 발권이 끊기지 않습니다.</strong>
+        </p>
+
+        <div class="form-group">
+          <label for="aiProviderSelect" class="form-label">AI 엔진 선택</label>
+          <select id="aiProviderSelect" class="modal-select">
+            <option value="local">내장 읽걷쓰AI 스마트 엔진 (무료 · 오프라인 즉시 발권)</option>
+            <option value="gemini">Google Gemini API (gemini-2.5-flash)</option>
+            <option value="openai">OpenAI API (gpt-4o-mini)</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="apiKeyInputGroup">
+          <label for="apiKeyInput" class="form-label">API Key 입력 (브라우저에만 안전하게 저장됨)</label>
+          <input
+            type="password"
+            id="apiKeyInput"
+            class="modal-input"
+            placeholder="AIzaSy... 또는 sk-..."
+            autocomplete="off"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="clearApiKeyBtn" class="ghost-btn">키 초기화</button>
+        <button type="button" id="saveApiModalBtn" class="issue-btn modal-save-btn">설정 저장하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastMsg" class="toast-msg hidden no-print" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
